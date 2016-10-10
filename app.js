@@ -2,7 +2,7 @@ $(document).ready(function(){
 	"use strict";
 
 	function newlist(a){
-		$("ul").append('<li><input id="fait" type="checkbox"><span>'+a+'</span></li>');		
+		$("ul").append('<div id="list"><li><input id="check" type="checkbox"><label>'+a+'</label></li></div>');		
 	}
 
 	function newtache(){
@@ -10,15 +10,17 @@ $(document).ready(function(){
 		newlist(input);	
 
 		function tachefaite(){
-			var tache = $("#fait").is(":checked");
+			var tache = $("#check").is(":checked");
 			if(tache){
-				$("span").css("color", "green");
+				$("#list").css("background", "green");
 			} else{
-				$("span").css("color", "black");
+				$("#list").css("background", "white");
 			}
 		}
-	}
 
+		$("#check").click(tachefaite);
+
+	}
 
 	$('#addList').click(newtache);
 });
