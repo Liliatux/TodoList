@@ -1,49 +1,39 @@
 $(document).ready(function(){
 
-	//alert("Bienvenue");
-	console.log("Bienvenue chez client");
+	alert("Bienvenue");
+	console.log("Bienvenue cher client");
 
-	var compteur = 0;
-
-	function newlist(a){
-		compteur++;
-		$("ul").append('<li><div id="list'+compteur +'"><input class="check" data-box="list'+compteur +'" type="checkbox"><label>'+ a +'</label></div></li>');	
-	}
-
-	function newtache(){
+	//Ajout d'une tâche	
+	$("form").on("submit", function(event){
+		event.preventDefault();
 		var input = $('#newlist').val();
-		newlist(input);	
+		$("ul").append('<li class="unchecked"><input class="check" type="checkbox"><label>'+ input +'</label></li>');	
+	});
 
-		function tachefaite(){
-			var checked = $(this).is(":checked");
-			var idCheck = $(this).data('box');
-
-			if(checked){
-				$('#'+idCheck).css("background", "green");			
-			} else if(!checked){
-				$('#'+idCheck).css("background", "red");
-			}
-
-			$('#all').click(function(){
-				$('#'+idCheck).parent('li').show();
-			});
-
-			$("#pasFait").click(function(){
-				if(checked){
-					$('#'+idCheck).parent("li").hide();
-				}
-			});
-
-			$('#fait').click(function(){
-				if(!checked){
-					$('#'+idCheck).parent('li').hide();
-				}
-			});
+	//Ajout des class Checked et uncheked
+	$(".taches").on("change", ".check", function(){
+		if($(this).is(":checked")){
+			$(this).parent("li").removeClass("unchecked");
+			$(this).parent("li").addClass("checked");
+		} else{
+			$(this).parent("li").addClass("unchecked");
+			$(this).parent("li").removeClass("checked");
 		}
+	});
 
-		$(".check").click(tachefaite);
-	}
+	//Filtre des tâhes
+	$("select").on("change", function(){
+		if($(this).val() == "all"){
+			$("li").show();
+		} else if($(this).val() == "pasFait"){
+			$(".unchecked").show();
+			$(".checked").hide();	
+		} else if($(this).val() == "fait"){
+			$(".unchecked").hide();
+			$(".checked").show();
+		}
+	});
 
-	$('#addList').click(newtache);
-
+	//Ajout d'un paragraphe
+	$("p").text("Test");
 });

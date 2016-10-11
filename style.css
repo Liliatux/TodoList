@@ -1,4 +1,6 @@
-header {
+body {
+	font-family: 'Open Sans', sans-serif;
+	background: grey;
 	text-align: center;
 }
 
@@ -7,18 +9,10 @@ header {
 	width: 1000px;
 }
 
-.entete {
+li {
+	display: block;
 }
 
-.ajout {
-	margin-left: 10px;
-	display: inline-block;
-}
-
-.list {
-	display: inline-block;
-}
-
-.taches {
-
+.checked {
+	text-decoration: line-through; 
 }
