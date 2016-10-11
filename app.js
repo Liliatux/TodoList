@@ -1,5 +1,7 @@
 $(document).ready(function(){
-	"use strict";
+
+	//alert("Bienvenue");
+	console.log("Bienvenue chez client");
 
 	var compteur = 0;
 
@@ -13,37 +15,35 @@ $(document).ready(function(){
 		newlist(input);	
 
 		function tachefaite(){
+			var checked = $(this).is(":checked");
 			var idCheck = $(this).data('box');
-			var tache = $(this).is(":checked");
-			if(tache){
-				$('#'+idCheck).css("background", "green");
-				
-			} if(!tache){
-				$('#'+idCheck).css("background", "white");
-		
+
+			if(checked){
+				$('#'+idCheck).css("background", "green");			
+			} else if(!checked){
+				$('#'+idCheck).css("background", "red");
 			}
-			function filtre(){
-				var all = $("#all").is(":checked");
-				var fait = $('#fait').is(":checked");
-				var pasFait = $('#pasFait').is(':checked');
-				
-				if(all){
-				   ('li').show();
-				} if(fait){
-					$('#'+idCheck).parent('li').show();
-					$('#'+idCheck).parent('li').hide();
-				} if(pasFait){
+
+			$('#all').click(function(){
+				$('#'+idCheck).parent('li').show();
+			});
+
+			$("#pasFait").click(function(){
+				if(checked){
+					$('#'+idCheck).parent("li").hide();
+				}
+			});
+
+			$('#fait').click(function(){
+				if(!checked){
 					$('#'+idCheck).parent('li').hide();
 				}
-				console.log("coucou");
-			}
-				$('#all').click(filtre);
-				$('#fait').click(filtre);
-				$("#pasFait").click(filtre);
+			});
 		}
 
 		$(".check").click(tachefaite);
 	}
 
 	$('#addList').click(newtache);
+
 });
