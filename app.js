@@ -1,6 +1,6 @@
 $(document).ready(function(){	
 
-	//alert("Bienvenue cher client");
+	alert("Bienvenue cher client");
 	console.log("Bienvenue dans votre TodoList");
 
 	//Ajout d'une tâche	
