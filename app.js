@@ -1,13 +1,15 @@
-$(document).ready(function(){
+$(document).ready(function(){	
 
-	alert("Bienvenue");
-	console.log("Bienvenue cher client");
+	//alert("Bienvenue cher client");
+	console.log("Bienvenue dans votre TodoList");
 
 	//Ajout d'une tâche	
 	$("form").on("submit", function(event){
 		event.preventDefault();
 		var input = $('#newlist').val();
-		$("ul").append('<li class="unchecked"><input class="check" type="checkbox"><label>'+ input +'</label></li>');	
+		localStorage.setItem("form", input);
+		$("ul").append('<li class="unchecked"><input class="check" type="checkbox"><label>'+ input +'</label></li>');
+		console.log(localStorage.getItem("form"));
 	});
 
 	//Ajout des class Checked et uncheked
@@ -35,5 +37,5 @@ $(document).ready(function(){
 	});
 
 	//Ajout d'un paragraphe
-	$("p").text("Test");
+	$("footer").append("<p></p>");
 });

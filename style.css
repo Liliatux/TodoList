@@ -2,15 +2,28 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	background: grey;
 	text-align: center;
+	margin: 0 auto;
+	width: 600px;
 }
 
-.container {
-	margin: 0 auto;
-	width: 1000px;
+#newlist {
+	height: 30px;
+	width: 200px;
+}
+
+#addList {
+	height: 30px;
+	width: 40px;
+}
+
+select {
+	height: 30px;
+	width: 150px;
 }
 
 li {
 	display: block;
+	text-align: left;
 }
 
 .checked {
