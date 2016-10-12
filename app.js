@@ -1,11 +1,9 @@
 $(document).ready(function(){	
 
-	//alert("Bienvenue cher client");
 	console.log("Bienvenue dans votre TodoList");
 
 	//Ajout d'une tâche	
-	$("form").on("submit", function(event){
-		event.preventDefault();
+	$(".button").on("click", function(){
 		var input = $('#newlist').val();
 		localStorage.setItem("form", input);
 		$("ul").append('<li class="unchecked"><input class="check" type="checkbox"><label>'+ input +'</label></li>');
@@ -35,7 +33,4 @@ $(document).ready(function(){
 			$(".checked").show();
 		}
 	});
-
-	//Ajout d'un paragraphe
-	$("footer").append("<p></p>");
 });

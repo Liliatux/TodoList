@@ -1,24 +1,12 @@
 body {
 	font-family: 'Open Sans', sans-serif;
-	background: grey;
 	text-align: center;
 	margin: 0 auto;
-	width: 600px;
-}
-
-#newlist {
-	height: 30px;
-	width: 200px;
-}
-
-#addList {
-	height: 30px;
-	width: 40px;
+	width: 1000px;
 }
 
 select {
-	height: 30px;
-	width: 150px;
+	background-color: black;
 }
 
 li {
@@ -27,5 +15,5 @@ li {
 }
 
 .checked {
-	text-decoration: line-through; 
+	text-decoration: line-through;
 }
